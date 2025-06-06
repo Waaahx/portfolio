@@ -2,7 +2,7 @@
   "name": "mon-portfolio",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://<ton-nom-utilisateur>.github.io/<nom-du-depot>",
+  "homepage": "https://waaahx.github.io/portfolio/",
   "type": "module",
   "scripts": {
     "dev": "vite",
