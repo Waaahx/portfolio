@@ -1,175 +1,96 @@
-import { 
-  DiJsBadge, DiReact, DiMysql, DiNodejs,
-  DiGo, DiRust, DiPython, DiMongodb, DiGithubBadge, DiCss3, DiHtml5, DiJava, DiTerminal, DiPhp
-} from "react-icons/di";
-import { SiTailwindcss, SiGitea } from "react-icons/si";
-import { TbBrandMinecraft } from "react-icons/tb";
-import { TbBrandVscode } from "react-icons/tb";
+export function TechTag({ name, color }) {
+  return (
+    <div className="flex items-center gap-2 text-xs font-sans text-gray-300 w-fit">
+      <span
+        className="w-3 h-3 rounded-full"
+        style={{ backgroundColor: color }}
+      ></span>
+      {name}
+    </div>
+  );
+}
+
 
 export function Javascript() {
-  return (
-    <p className="bg-[#F7DF1E] text-black font-bold rounded w-fit px-2 flex items-center gap-1">
-      <DiJsBadge /> JavaScript
-    </p>
-  );
+  return <TechTag name="JavaScript" color="#F7DF1E" />;
 }
 
 export function _React() {
-  return (
-    <p className="bg-[#61DAFB] text-black font-bold rounded w-fit px-2 flex items-center gap-1">
-      <DiReact /> React
-    </p>
-  );
+  return <TechTag name="React" color="#61DAFB" />;
 }
 
 export function NodeJS() {
-  return (
-    <p className="bg-[#339933] text-white font-bold rounded w-fit px-2 flex items-center gap-1">
-      <DiNodejs /> NodeJS
-    </p>
-  );
+  return <TechTag name="NodeJS" color="#339933" />;
 }
 
 export function Tailwind() {
-  return (
-    <p className="bg-[#38B2AC] text-white font-bold rounded w-fit px-2 flex items-center gap-1">
-      <SiTailwindcss /> Tailwind
-    </p>
-  );
+  return <TechTag name="Tailwind" color="#38B2AC" />;
 }
 
 export function MySql() {
-  return (
-    <p className="bg-[#4479A1] text-white font-bold rounded w-fit px-2 flex items-center gap-1">
-      <DiMysql /> MySQL
-    </p>
-  );
+  return <TechTag name="MySQL" color="#4479A1" />;
 }
 
 export function C() {
-  return (
-    <p className="bg-[#A8B9CC] text-black font-bold rounded w-fit px-2 flex items-center gap-1">
-      <DiC /> C
-    </p>
-  );
+  return <TechTag name="C" color="#A8B9CC" />;
 }
 
 export function Golang() {
-  return (
-    <p className="bg-[#00ADD8] text-white font-bold rounded w-fit px-2 flex items-center gap-1">
-      <DiGo /> Golang
-    </p>
-  );
+  return <TechTag name="Golang" color="#00ADD8" />;
 }
 
 export function Rust() {
-  return (
-    <p className="bg-[#DEA584] text-black font-bold rounded w-fit px-2 flex items-center gap-1">
-      <DiRust /> Rust
-    </p>
-  );
+  return <TechTag name="Rust" color="#DEA584" />;
 }
 
 export function Python() {
-  return (
-    <p className="bg-[#3776AB] text-white font-bold rounded w-fit px-2 flex items-center gap-1">
-      <DiPython /> Python
-    </p>
-  );
+  return <TechTag name="Python" color="#3776AB" />;
 }
 
 export function Skript() {
-  return (
-    <p className="bg-gray-700 text-white font-bold rounded w-fit px-2 flex items-center gap-1">
-      <TbBrandMinecraft /> Skript
-    </p>
-  );
+  return <TechTag name="Skript" color="#3F3F3F" />;
 }
 
 export function VBS() {
-  return (
-    <p className="bg-[#00A2ED] text-white font-bold rounded w-fit px-2 flex items-center gap-1">
-      <TbBrandVscode /> VBS
-    </p>
-  );
+  return <TechTag name="VBS" color="#00A2ED" />;
 }
 
 export function MongoDB() {
-  return (
-    <p className="bg-[#47A248] text-white font-bold rounded w-fit px-2 flex items-center gap-1">
-      <DiMongodb /> MongoDB
-    </p>
-  );
+  return <TechTag name="MongoDB" color="#47A248" />;
 }
 
 export function Supabase() {
-  return (
-    <p className="bg-[#3ECF8E] text-black font-bold rounded w-fit px-2 flex items-center gap-1">
-      <DiSupabase /> Supabase
-    </p>
-  );
+  return <TechTag name="Supabase" color="#3ECF8E" />;
 }
 
 export function Shell() {
-  return (
-    <p className="bg-gray-900 text-white font-bold rounded w-fit px-2 flex items-center gap-1">
-      <DiTerminal /> Shell
-    </p>
-  );
+  return <TechTag name="Shell" color="#111111" />;
 }
 
 export function Powershell() {
-  return (
-    <p className="bg-[#5391FE] text-white font-bold rounded w-fit px-2 flex items-center gap-1">
-      <DiGnubash /> PowerShell
-    </p>
-  );
+  return <TechTag name="PowerShell" color="#5391FE" />;
 }
 
 export function Java() {
-  return (
-    <p className="bg-[#007396] text-white font-bold rounded w-fit px-2 flex items-center gap-1">
-      <DiJava /> Java
-    </p>
-  );
+  return <TechTag name="Java" color="#007396" />;
 }
 
 export function Gitea() {
-  return (
-    <p className="bg-[#609926] text-white font-bold rounded w-fit px-2 flex items-center gap-1">
-      <SiGitea /> Gitea
-    </p>
-  );
+  return <TechTag name="Gitea" color="#609926" />;
 }
 
 export function GitHub() {
-  return (
-    <p className="bg-[#181717] text-white font-bold rounded w-fit px-2 flex items-center gap-1">
-      <DiGithubBadge /> GitHub
-    </p>
-  );
+  return <TechTag name="GitHub" color="#181717" />;
 }
 
 export function HTML() {
-  return (
-    <p className="bg-[#E34F26] text-white font-bold rounded w-fit px-2 flex items-center gap-1">
-      <DiHtml5 /> HTML
-    </p>
-  );
+  return <TechTag name="HTML" color="#E34F26" />;
 }
 
 export function CSS() {
-  return (
-    <p className="bg-[#1572B6] text-white font-bold rounded w-fit px-2 flex items-center gap-1">
-      <DiCss3 /> CSS
-    </p>
-  );
+  return <TechTag name="CSS" color="#1572B6" />;
 }
 
 export function Php() {
-  return (
-    <p className="bg-[#777BB3] text-white font-bold rounded w-fit px-2 flex items-center gap-1">
-      <DiPhp /> PHP
-    </p>
-  );
+  return <TechTag name="PHP" color="#777BB3" />;
 }

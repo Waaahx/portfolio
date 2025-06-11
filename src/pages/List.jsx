@@ -1,38 +1,15 @@
-import { useState } from "react";
-import { projects } from "../components/Projects";
 import RepoCard from "../components/Generic/RepoCard";
 
 export default function ProjectGallery() {
-  const [selectedTags, setSelectedTags] = useState([]);
-
-  const allTags = Array.from(
-    new Set(
-      projects.flatMap((ProjectComponent) => {
-        const el = ProjectComponent();
-        return el.props.tags.props.children.map((tag) => tag.type.name);
-      })
-    )
-  );
-
-  const toggleTag = (tag) => {
-    setSelectedTags((prev) =>
-      prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]
-    );
-  };
-
-  const filteredProjects = projects.filter((ProjectComponent) => {
-    const el = ProjectComponent();
-    const tagNames = el.props.tags.props.children.map((tag) => tag.type.name);
-    return selectedTags.length === 0 || selectedTags.every((tag) => tagNames.includes(tag));
-  });
 
   return (
     <div id="projects" className="min-h-screen bg-gradient-to-b from-gray-950 to-indigo-950 text-white flex">
       <div className="flex flex-col items-center justify-center w-full h-screen px-4">
+
         <img
-          src="https://github-readme-stats.vercel.app/api?username=Waaahx&show_icons=true&theme=holi"
-          alt="GitHub Stats"
-          className="mb-10"
+          src="https://github-readme-stats.vercel.app/api/top-langs/?username=Waaahx&layout=pie&theme=holi&showowner=true"
+          alt="Top Languages"
+          className="mb-10 mt-2"
         />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
