@@ -1,61 +1,70 @@
-import { motion } from "framer-motion";
 import { useState } from "react";
 import { projects } from "../components/Projects";
-import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
-
 
 export default function ProjectGallery() {
-  const [index, setIndex] = useState(0);
+  const [selectedTags, setSelectedTags] = useState([]);
 
-  const prevProject = () => {
-    setIndex((prev) => (prev - 1 + projects.length) % projects.length);
+  const allTags = Array.from(
+    new Set(
+      projects.flatMap((ProjectComponent) => {
+        const el = ProjectComponent();
+        return el.props.tags.props.children.map((tag) => tag.type.name);
+      })
+    )
+  );
+
+  const toggleTag = (tag) => {
+    setSelectedTags((prev) =>
+      prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]
+    );
   };
 
-  const nextProject = () => {
-    setIndex((prev) => (prev + 1) % projects.length);
-  };
+  const filteredProjects = projects.filter((ProjectComponent) => {
+    const el = ProjectComponent();
+    const tagNames = el.props.tags.props.children.map((tag) => tag.type.name);
+    return selectedTags.length === 0 || selectedTags.every((tag) => tagNames.includes(tag));
+  });
 
   return (
-    <div id="projects" className='bg-linear-to-b from-gray-950 to-indigo-950 text-white'>
-      <div className="relative w-full h-screen flex justify-center items-center overflow-hidden">
-        {projects.map((P, i) => {
-          const pos = (i - index + projects.length) % projects.length;
-          let x = pos * 150;
-          let scale = 1 - Math.abs(pos) * 0.15;
-          let opacity = pos === 0 ? 1 : 0.6;
-          let zIndex = projects.length - Math.abs(pos);
-
-          let animationX = pos === 0 ? 0 : (pos > 0 ? 1 : -1) * 150;
-
-          return (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, scale: 0.8, x: animationX + 50 }}
-              animate={{ opacity, scale, x }}
-              transition={{ duration: 0.6, ease: "easeInOut" }}
-              className="absolute flex justify-center items-center"
-              style={{ zIndex }}
-            >
-              <P />
-            </motion.div>
-          );
-        })}
-
-        <div className="absolute bottom-24 flex justify-center space-x-16 w-full px-4">
-          <button
-            onClick={prevProject}
-            className="w-16 h-16 bg-black text-white rounded-full z-100 justify-center flex items-center cursor-pointer"
-          ><FaArrowLeft /></button>
-
-          <button
-            onClick={nextProject}
-            className="w-16 h-16 bg-black text-white rounded-full z-100 justify-center flex items-center cursor-pointer"
-          ><FaArrowRight /></button>
+    <div id="projects" className="min-h-screen bg-gradient-to-b from-gray-950 to-indigo-950 text-white flex">
+      {/* Sidebar Filter */}
+      <aside className="w-72 p-6 border-r border-gray-800 flex flex-col items-center justify-center">
+        <div>
+          <h2 className="text-xl font-semibold mb-6 text-center">Filtres</h2>
+          <div className="space-y-4">
+            {allTags.map((tag) => {
+              const enabled = selectedTags.includes(tag);
+              return (
+                <div key={tag} className="flex items-center justify-between w-48">
+                  <label className="text-sm">{tag}</label>
+                  <button
+                    onClick={() => toggleTag(tag)}
+                    className={`relative inline-flex items-center h-6 rounded-full w-11 transition-colors duration-300 ${enabled ? "bg-indigo-600" : "bg-gray-700"
+                      }`}
+                  >
+                    <span
+                      className={`inline-block w-4 h-4 transform bg-white rounded-full transition-transform duration-300 ${enabled ? "translate-x-6" : "translate-x-1"
+                        }`}
+                    />
+                  </button>
+                </div>
+              );
+            })}
+          </div>
         </div>
-      </div>
-    </div>
+      </aside>
 
+
+      {/* Grid of Projects */}
+      <main className="flex-1 p-6 overflow-y-auto h-screen">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {filteredProjects.map((P, i) => (
+            <div key={i} className="flex justify-center w-fit">
+              <P />
+            </div>
+          ))}
+        </div>
+      </main>
+    </div>
   );
 }
-
-

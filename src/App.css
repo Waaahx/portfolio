@@ -45,7 +45,7 @@ body {
 
 @keyframes fall {
   0% {
-    transform: translateY(-150px);
+    transform: translateY(-15px);
     opacity: 0;
   }
   10% {
@@ -55,11 +55,11 @@ body {
     opacity: 0.5;
   }
   100% {
-    transform: translateY(500vh);
+    transform: translateY(50vh);
     opacity: 0;
   }
 }
 
 .animate-fall {
-  animation: fall 25s linear infinite;
+  animation: fall 5s linear infinite;
 }

@@ -1,11 +1,10 @@
 import { 
   DiJsBadge, DiReact, DiMysql, DiNodejs,
-  DiGo, DiRust, DiPython, DiMongodb, DiGithubBadge, DiCss3, DiHtml5, DiJava, DiTerminal
+  DiGo, DiRust, DiPython, DiMongodb, DiGithubBadge, DiCss3, DiHtml5, DiJava, DiTerminal, DiPhp
 } from "react-icons/di";
 import { SiTailwindcss, SiGitea } from "react-icons/si";
 import { TbBrandMinecraft } from "react-icons/tb";
-import { FaTerminal } from "react-icons/fa"; // Pour Shell
-import { TbBrandVscode } from "react-icons/tb"; // Icône proche pour VBS
+import { TbBrandVscode } from "react-icons/tb";
 
 export function Javascript() {
   return (
@@ -163,6 +162,14 @@ export function CSS() {
   return (
     <p className="bg-[#1572B6] text-white font-bold rounded w-fit px-2 flex items-center gap-1">
       <DiCss3 /> CSS
+    </p>
+  );
+}
+
+export function Php() {
+  return (
+    <p className="bg-[#777BB3] text-white font-bold rounded w-fit px-2 flex items-center gap-1">
+      <DiPhp /> PHP
     </p>
   );
 }

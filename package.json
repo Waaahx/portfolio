@@ -13,9 +13,12 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@react-spring/web": "^10.0.1",
     "@supabase/supabase-js": "^2.49.3",
     "@tailwindcss/vite": "^4.0.15",
+    "@use-gesture/react": "^10.3.1",
     "framer-motion": "^12.6.2",
+    "motion": "^12.17.0",
     "pdfjs-dist": "^5.3.31",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

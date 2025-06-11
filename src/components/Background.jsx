@@ -32,7 +32,8 @@ function FallingLogo({ logo, left, delay, top }) {
                     alt="logo reflection"
                 />
                 <img
-                    className="absolute top-0 left-0 w-8 h-8 rounded -translate-z-8 rotate-x-[50deg] rotate-z-[30deg] shadow-md"
+                    className="absolute top-0 left-0 w-8 h-8 rounded import CV from './CV'
+-translate-z-8 rotate-x-[50deg] rotate-z-[30deg] shadow-md"
                     src={logo}
                     draggable="false"
                     alt="logo"
@@ -46,7 +47,7 @@ function FallingLogo({ logo, left, delay, top }) {
 
 function Background() {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-    const logosPerScreen = 65;
+    const logosPerScreen = 50;
 
     useEffect(() => {
         const handleResize = () => {
@@ -57,7 +58,7 @@ function Background() {
     }, []);
 
     return (
-        <div className="absolute top-0 left-0 w-full h-[300vh] overflow-hidden z-0 pointer-events-none">
+        <div className="absolute top-0 left-0 w-full h-[200vh] overflow-hidden z-0 pointer-events-none">
             {Array.from({ length: logosPerScreen }).map((_, i) => {
                 const logo = logos[Math.floor(Math.random() * logos.length)];
                 const left = Math.random() * windowWidth;
