@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { projects } from "../components/Projects";
+import RepoCard from "../components/Generic/RepoCard";
 
 export default function ProjectGallery() {
   const [selectedTags, setSelectedTags] = useState([]);
@@ -27,44 +28,26 @@ export default function ProjectGallery() {
 
   return (
     <div id="projects" className="min-h-screen bg-gradient-to-b from-gray-950 to-indigo-950 text-white flex">
-      {/* Sidebar Filter */}
-      <aside className="w-72 p-6 border-r border-gray-800 flex flex-col items-center justify-center">
-        <div>
-          <h2 className="text-xl font-semibold mb-6 text-center">Filtres</h2>
-          <div className="space-y-4">
-            {allTags.map((tag) => {
-              const enabled = selectedTags.includes(tag);
-              return (
-                <div key={tag} className="flex items-center justify-between w-48">
-                  <label className="text-sm">{tag}</label>
-                  <button
-                    onClick={() => toggleTag(tag)}
-                    className={`relative inline-flex items-center h-6 rounded-full w-11 transition-colors duration-300 ${enabled ? "bg-indigo-600" : "bg-gray-700"
-                      }`}
-                  >
-                    <span
-                      className={`inline-block w-4 h-4 transform bg-white rounded-full transition-transform duration-300 ${enabled ? "translate-x-6" : "translate-x-1"
-                        }`}
-                    />
-                  </button>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </aside>
+      <div className="flex flex-col items-center justify-center w-full h-screen px-4">
+        <img
+          src="https://github-readme-stats.vercel.app/api?username=Waaahx&show_icons=true&theme=holi"
+          alt="GitHub Stats"
+          className="mb-10"
+        />
 
-
-      {/* Grid of Projects */}
-      <main className="flex-1 p-6 overflow-y-auto h-screen">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {filteredProjects.map((P, i) => (
-            <div key={i} className="flex justify-center w-fit">
-              <P />
-            </div>
-          ))}
+          <RepoCard username="Waaahx" repoName="portfolio" />
+          <RepoCard username="Waaahx" repoName="bisouPlugin" />
+          <RepoCard username="Waaahx" repoName="FileManipulator" />
+          <RepoCard username="Waaahx" repoName="taskboard" />
+          <RepoCard username="Waaahx" repoName="webOs" />
+          <RepoCard username="Waaahx" repoName="uwuid" />
+          <RepoCard username="Waaahx" repoName="minecraft_server_builder" />
+          <RepoCard username="Waaahx" repoName="discord-bot-builder" />
         </div>
-      </main>
+      </div>
+
+
     </div>
   );
 }

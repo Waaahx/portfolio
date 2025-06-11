@@ -83,7 +83,6 @@ function Presentation() {
             </div>
 
             <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-10 cursor-pointer">
-                <p className="text-gray-300 text-sm mt-2 mb-6 text-center">Voir mes projets</p>
                 <a onClick={() => document.querySelector(`#projects`)?.scrollIntoView({ behavior: 'smooth' })} className="text-gray-300 hover:text-white transition-colors duration-300">
                     <MdOutlineKeyboardDoubleArrowDown className="w-48 h-48 animate-bounce" />
                 </a>
